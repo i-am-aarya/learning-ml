@@ -32,7 +32,7 @@ class Snake :
         self.snake_spawn = [self.swidth // 2, self. sheight // 2]   # snake spawn position
         self.snake_pos = self.snake_spawn           # will be used for storing snake position at certain time
         self.snake_body = [self.snake_pos]
-        self.direction = [0, 0]                     # Snake direction, No direction by default
+        self.direction = [-1, 0]                     # Snake direction, left by default
         self.snake_color = [DARK_GREEN, GREEN]
 
         # Food Details
@@ -45,7 +45,6 @@ class Snake :
         # Game Details:
         self.score = 0
 
-
         # Snake Details
         self.snake_length = 1
         self.snake_size = 20
@@ -54,7 +53,7 @@ class Snake :
         self.snake_spawn = [self.swidth // 2, self. sheight // 2]   # snake spawn position
         self.snake_pos = self.snake_spawn           # will be used for storing snake position at certain time
         self.snake_body = [self.snake_pos]
-        self.direction = [0,0]                     # Snake direction, no direction by default
+        self.direction = [-1,0]                     # Snake direction, left by default
         self.snake_color = [DARK_GREEN, GREEN]
 
         # Food Details
@@ -122,6 +121,6 @@ class Snake :
         self.clock.tick(self.game_speed)
 
 
-crapman = Snake()
+player = Snake()
 while True:
-    crapman.game_loop()
+    player.game_loop()
