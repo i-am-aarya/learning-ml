@@ -89,17 +89,9 @@ class Snake :
             else :
                 self.direction = self.Directions.DOWN
 
-                """
-        if event.key == pygame.K_UP and self.direction != self.Directions.DOWN :
-            self.direction = self.Directions.UP
-        if event.key == pygame.K_DOWN and self.direction != self.Directions.UP:
-            self.direction = self.Directions.DOWN
-        if event.key == pygame.K_LEFT and self.direction != self.Directions.RIGHT:
-            self.direction = self.Directions.LEFT
-        if event.key == pygame.K_RIGHT and self.direction != self.Directions.LEFT:
-            self.direction = self.Directions.RIGHT
-                """
-
+        else :
+            print("Unknown Direction Given!")
+                
     def move_snake(self) :
         if (self.snake_pos[0] >= 0 and self.snake_pos[1] >= 0 and self.snake_pos[0] <= self.swidth - self.snake_size and self.snake_pos[1] <= self.sheight - self.snake_size and self.snake_pos not in self.snake_body[1:]) :
             self.snake_pos[0] += self.snake_speed*self.direction.value[0]
