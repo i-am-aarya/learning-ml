@@ -12,6 +12,8 @@ BLUE = (0,0,255)
 WHITE = (255,255,255)
 BLACK = (0,0,0)
 
+
+
 class Snake :
 
     class Directions(Enum) :
@@ -21,13 +23,14 @@ class Snake :
         RIGHT = [1, 0]
     
     def __init__(self, speed=15, screen_width = 1000, screen_height = 600) :
+
         # Setup pygame
         self.swidth = screen_width
         self.sheight = screen_height
         self.screen = pygame.display.set_mode((self.swidth, self.sheight))
         self.clock = pygame.time.Clock()
         self.game_speed = speed
-        
+
         # Game details
         self.score = 0
         self.highest_score = 0
@@ -49,6 +52,7 @@ class Snake :
 
         # Food Details
         self.food_pos = [random.randint(0,self.swidth - self.snake_size)//self.snake_size * self.snake_size, random.randint(0,self.sheight - self.snake_size)//self.snake_size * self.snake_size]
+        
         self.food_size = self.snake_size
         self.food_color = RED
         
@@ -106,6 +110,7 @@ class Snake :
             self.score += 1
             self.food_pos = [random.randint(0,self.swidth - self.snake_size)//self.snake_size * self.snake_size, random.randint(0,self.sheight - self.snake_size)//self.snake_size * self.snake_size]
         self.spawn_food()
+        return True
     
     def update_snake_body(self) :
         self.snake_body.insert(0, [self.snake_pos[0], self.snake_pos[1]])
@@ -113,7 +118,6 @@ class Snake :
             self.snake_body.pop()
 
     def game_loop(self) :
-        print(self.direction)
         self.screen.fill(BLACK)
 
         for event in pygame.event.get() :
